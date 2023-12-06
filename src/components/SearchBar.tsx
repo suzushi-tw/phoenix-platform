@@ -67,7 +67,7 @@ const SearchBar = () => {
           debounceRequest();
         }}
         className="outline-none border-none focus:border-none focus:outline-none ring-0"
-        placeholder="Search communities..."
+        placeholder="搜尋看板..."
       />
 
       {input.length > 0 ? (
