@@ -5,7 +5,7 @@ import { usePrevious } from "@mantine/hooks";
 import { VoteType } from "@prisma/client";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/Button";
-import { ArrowBigDown, ArrowBigUp } from "lucide-react";
+import { ArrowBigDown, ArrowBigUp, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
 import { PostVoteRequest } from "@/lib/validators/vote";
@@ -77,16 +77,16 @@ const PostVoteClient = ({ postId, initialVotesAmt, initialVote, className }: Pro
         variant="ghost"
         aria-label="upvote"
       >
-        <ArrowBigUp
+        <Heart
           className={cn("h-5 w-5 text-zinc-700", {
-            "text-emerald-500 fill-emerald-500": currentVote === "UP",
+            "text-gray-200 fill-red-200": currentVote === "UP",
           })}
         />
       </Button>
       <p className="text-center py-2 font-medium text-sm text-zinc-900">
         {votesAmt}
       </p>
-      <Button
+      {/* <Button
         onClick={() => vote("DOWN")}
         size="sm"
         variant="ghost"
@@ -97,7 +97,7 @@ const PostVoteClient = ({ postId, initialVotesAmt, initialVote, className }: Pro
             "text-red-500 fill-red-500": currentVote === "DOWN",
           })}
         />
-      </Button>
+      </Button> */}
     </div>
   );
 };
