@@ -67,7 +67,7 @@ const Layout = async ({ children, params }: Props) => {
 
             <dl className="divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white">
               <div className="flex justify-between gap-x-4 py-3">
-                <dt className="text-gray-500">Created</dt>
+                <dt className="text-gray-500">創立於</dt>
                 <dd className="text-gray-700">
                   <time dateTime={subreddit.createdAt.toDateString()}>
                     {format(subreddit.createdAt, "MMMM d, yyyy")}
@@ -76,14 +76,14 @@ const Layout = async ({ children, params }: Props) => {
               </div>
 
               <div className="flex justify-between gap-x-4 py-3">
-                <dt className="text-gray-500">Members</dt>
+                <dt className="text-gray-500">成員</dt>
                 <dd className="text-gray-700">
                   <div className="text-gray-900">{memberCount}</div>
                 </dd>
               </div>
               {subreddit.creatorId === session?.user?.id ? (
                 <div className="flex justify-between gap-x-4 py-3">
-                  <p className="text-gray-500">You created this community</p>
+                  <p className="text-gray-500">您創建了這個看板</p>
                 </div>
               ) : null}
 
@@ -102,7 +102,7 @@ const Layout = async ({ children, params }: Props) => {
                 })}
                 href={`r/${slug}/submit`}
               >
-                Create Post
+                發貼文
               </Link>
             </dl>
           </div>
