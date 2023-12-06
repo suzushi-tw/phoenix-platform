@@ -1,23 +1,23 @@
 import Link from "next/link";
 import { Icons } from "./Icons";
 import UserAuthForm from "./UserAuthForm";
+import Image from 'next/image';
 
 const SignIn = () => {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
-        <Icons.logo className="mx-auto h-6 w-6" />
+        <Image alt='login logo' src={"/Phoenix_logo.jpg"} className="mx-auto h-6 w-6" height={66} width={66}/>
         <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
         <p className="text-sm max-w-xs mx-auto">
-          By continuing, you are setting up a Breadit account and agree to our
-          Terms of Service and Privacy Policy.
+         登入及代表您遵守我們的<br></br>Terms of Service and Privacy Policy
         </p>
 
         {/* Sign In Form */}
         <UserAuthForm />
 
         <p className="px-8 text-center text-sm text-zinc-700">
-          New to Breadit?{" "}
+          新用戶?{" "}
           <Link
             href="/sign-up"
             className="hover:text-zinc-800 text-sm underline underline-offset-4"
