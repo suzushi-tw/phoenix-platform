@@ -73,7 +73,7 @@ const UserNameForm = ({ user }: Props) => {
     <form onSubmit={handleSubmit((e) => updateUsername(e))}>
       <Card>
         <CardHeader>
-          <CardTitle>Your username</CardTitle>
+          <CardTitle>用戶名稱</CardTitle>
           <CardDescription>
             Please enter a display name you are comfortable with.
           </CardDescription>

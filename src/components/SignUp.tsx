@@ -9,15 +9,14 @@ const SignUp = () => {
         <Icons.logo className="mx-auto h-6 w-6" />
         <h1 className="text-2xl font-semibold tracking-tight">Sign Up</h1>
         <p className="text-sm max-w-xs mx-auto">
-          By continuing, you are setting up a Breadit account and agree to our
-          Terms of Service and Privacy Policy.
+          本平台嚴格執行保密和個資保護
         </p>
 
         {/* Sign In Form */}
         <UserAuthForm />
 
         <p className="px-8 text-center text-sm text-zinc-700">
-          Already a Breadittor?{" "}
+          已經註冊了嗎?{" "}
           <Link
             href="/sign-in"
             className="hover:text-zinc-800 text-sm underline underline-offset-4"
