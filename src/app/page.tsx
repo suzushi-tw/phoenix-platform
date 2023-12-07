@@ -51,7 +51,7 @@ export default async function Home() {
               <Subscribedforumbutton />
             </div>
 
-            <Card className="mx-3">
+            <Card className="w-full">
               <CardHeader>
                 <CardTitle>分享這個平台吧!</CardTitle>
                 <CardDescription>Share this platform in one click!</CardDescription>
@@ -65,7 +65,7 @@ export default async function Home() {
                         Copy Link
                       </Button>
                     </div>
-                    <div className="flex flex-col space-y-1.5">
+                    <div className="flex flex-col space-y-1.5 w-full">
                       {/* <Label htmlFor="framework">Framework</Label> */}
                       <Forumlist />
                       {/* <Select>
