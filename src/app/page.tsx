@@ -5,7 +5,7 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react"
- 
+
 import { Button } from "@/components/ui/Button"
 import {
   Card,
@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/Input"
 import { Label } from "@/components/ui/Label"
 import Forumlist from "@/components/Forumlist";
+import { Subscribedforumbutton } from "@/components/Subscribedforumbutton";
 // 
 
 
@@ -43,30 +44,31 @@ export default async function Home() {
             </p>
           </div>
           <dl className='-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6'>
-            <div className='flex justify-between gap-x-4 py-3'>
-              <p className='text-zinc-500'>
-                歡迎回來
+            <div className='flex justify-between gap-x-6 py-3 pl-3'>
+              <p className='text-zinc-500 '>
+                歡迎回來 
               </p>
+              <Subscribedforumbutton />
             </div>
 
-            <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>分享這個平台吧!</CardTitle>
-        <CardDescription>Share this platform in one click!</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-          <div className="flex space-x-2">
-          <Input value="http://example.com/link/to/document" readOnly />
-          <Button  className="shrink-0">
-            Copy Link
-          </Button>
-        </div>
-            <div className="flex flex-col space-y-1.5">
-              {/* <Label htmlFor="framework">Framework</Label> */}
-              <Forumlist />
-              {/* <Select>
+            <Card className="mx-3">
+              <CardHeader>
+                <CardTitle>分享這個平台吧!</CardTitle>
+                <CardDescription>Share this platform in one click!</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form>
+                  <div className="grid w-full items-center gap-4">
+                    <div className="flex space-x-2">
+                      <Input value="http://example.com/link/to/document" readOnly />
+                      <Button className="shrink-0">
+                        Copy Link
+                      </Button>
+                    </div>
+                    <div className="flex flex-col space-y-1.5">
+                      {/* <Label htmlFor="framework">Framework</Label> */}
+                      <Forumlist />
+                      {/* <Select>
                 <SelectTrigger id="framework">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
@@ -77,12 +79,12 @@ export default async function Home() {
                   <SelectItem value="nuxt">Nuxt.js</SelectItem>
                 </SelectContent>
               </Select> */}
-              
-            </div>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+
+                    </div>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
 
             <Link
               className={buttonVariants({
