@@ -1,6 +1,6 @@
-# Breadit - A Modern Fullstack Reddit Clone 
+# Phenix - A Modern Fullstack Reddit Clone 
 
-Built with the Next.js App Router, TypeScript & Tailwind
+From Bredit by code with Josh, modified for chinese use with additional features like admin.
 
 
 ## Features

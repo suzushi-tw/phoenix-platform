@@ -4,6 +4,22 @@ import { buttonVariants } from "@/components/ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
+import * as React from "react"
+ 
+import { Button } from "@/components/ui/Button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card"
+import { Input } from "@/components/ui/Input"
+import { Label } from "@/components/ui/Label"
+import Forumlist from "@/components/Forumlist";
+// 
+
 
 export const dynamic = "force-dynamic"
 export const fetchCache = "force-no-store"
@@ -32,6 +48,41 @@ export default async function Home() {
                 歡迎回來
               </p>
             </div>
+
+            <Card className="w-[350px]">
+      <CardHeader>
+        <CardTitle>分享這個平台吧!</CardTitle>
+        <CardDescription>Share this platform in one click!</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form>
+          <div className="grid w-full items-center gap-4">
+          <div className="flex space-x-2">
+          <Input value="http://example.com/link/to/document" readOnly />
+          <Button  className="shrink-0">
+            Copy Link
+          </Button>
+        </div>
+            <div className="flex flex-col space-y-1.5">
+              {/* <Label htmlFor="framework">Framework</Label> */}
+              <Forumlist />
+              {/* <Select>
+                <SelectTrigger id="framework">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                  <SelectItem value="next">Next.js</SelectItem>
+                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
+                  <SelectItem value="astro">Astro</SelectItem>
+                  <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                </SelectContent>
+              </Select> */}
+              
+            </div>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
 
             <Link
               className={buttonVariants({
