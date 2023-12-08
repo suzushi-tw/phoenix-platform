@@ -18,8 +18,7 @@ import {
 import { Input } from "@/components/ui/Input"
 import { Label } from "@/components/ui/Label"
 import Forumlist from "@/components/Forumlist";
-import { Subscribedforumbutton } from "@/components/Subscribedforumbutton";
-// 
+import { Subscribedforumbutton } from "@/components/Subscribedforumbutton"; 
 
 
 export const dynamic = "force-dynamic"
