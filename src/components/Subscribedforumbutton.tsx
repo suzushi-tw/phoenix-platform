@@ -20,12 +20,12 @@ export function Subscribedforumbutton() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+          <SheetTitle>以訂閱的看板</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when you done.
+            See all your subscribed forum here!
           </SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4">
+        {/* <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Name
@@ -38,7 +38,7 @@ export function Subscribedforumbutton() {
             </Label>
             <Input id="username" value="@peduarte" className="col-span-3" />
           </div>
-        </div>
+        </div> */}
         <SheetFooter>
           <SheetClose asChild>
             <Button type="submit">Save changes</Button>

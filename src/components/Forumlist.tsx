@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
 
 // import Link from "next/link";
 // import { Icons } from "./Icons";
@@ -23,6 +24,28 @@ const Forumlist = () => {
   return (
     <Card>
       <CardContent>
+        <div className="space-y-4 mt-6">
+          <h4 className="text-sm font-medium">大廳</h4>
+          <div className="grid gap-6">
+            <div className="flex items-center justify-between space-x-4">
+              <Link href={"/r/Home"}>
+              <div className="flex items-center space-x-4">
+                <Avatar>
+                  <AvatarImage src="/avatars/03.png" />
+                  <AvatarFallback>Ex</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-sm font-medium leading-none">
+                    論壇
+                  </p>
+                  <p className="text-sm text-muted-foreground"></p>
+                </div>
+              </div>
+              </Link>
+              
+            </div>
+          </div>
+        </div>
         <Separator className="my-4" />
         <div className="space-y-4">
           <h4 className="text-sm font-medium">友善企業</h4>
