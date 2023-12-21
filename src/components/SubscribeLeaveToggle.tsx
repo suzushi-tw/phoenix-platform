@@ -51,7 +51,7 @@ const SubscribeLeaveToggle = ({
 
       return toast({
         title: "Subscribed",
-        description: `You are now subscribed to r/${subredditName}`,
+        description: `您訂閱了 r/${subredditName}`,
       });
     },
   });
@@ -83,7 +83,7 @@ const SubscribeLeaveToggle = ({
 
       return toast({
         title: "Unsubscribed",
-        description: `You are now unsubscribed from r/${subredditName}`,
+        description: `您取消追蹤了 r/${subredditName}`,
       });
     },
   });
@@ -93,7 +93,7 @@ const SubscribeLeaveToggle = ({
       onClick={() => unsubscribe()}
       isLoading={isUnsubLoading}
     >
-      Leave community
+      退訂看板
     </Button>
   ) : (
     <Button
@@ -101,7 +101,7 @@ const SubscribeLeaveToggle = ({
       onClick={() => subscribe()}
       isLoading={isSubLoading}
     >
-      Join to post
+      追蹤
     </Button>
   );
 };

@@ -60,7 +60,7 @@ export default async function Home() {
                   <div className="grid w-full items-center gap-4">
                     <div className="flex space-x-2">
                       <Input value="http://example.com/link/to/document" readOnly />
-                      <Button className="shrink-0">
+                      <Button className="shrink-0" onClick={() => navigator.clipboard.writeText("https://phoenix-platform.com")}>
                         Copy Link
                       </Button>
                     </div>
