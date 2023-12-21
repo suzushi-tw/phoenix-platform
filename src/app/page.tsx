@@ -60,9 +60,9 @@ export default async function Home() {
                   <div className="grid w-full items-center gap-4">
                     <div className="flex space-x-2">
                       <Input value="http://example.com/link/to/document" readOnly />
-                      <Button className="shrink-0" onClick={() => navigator.clipboard.writeText("https://phoenix-platform.com")}>
+                      {/* <Button className="shrink-0" onClick={() => navigator.clipboard.writeText("https://phoenix-platform.com")}>
                         Copy Link
-                      </Button>
+                      </Button> */}
                     </div>
                     <div className="flex flex-col space-y-1.5 w-full">
                       {/* <Label htmlFor="framework">Framework</Label> */}
