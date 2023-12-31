@@ -75,7 +75,7 @@ const UserNameForm = ({ user }: Props) => {
         <CardHeader>
           <CardTitle>用戶名稱</CardTitle>
           <CardDescription>
-            Please enter a display name you are comfortable with.
+            請輸入一個喜歡的名稱！
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -19,6 +19,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { setrole } from "@/serveractions/action";
 
 export const metadata = {
   title: "Settings",
@@ -31,11 +32,11 @@ const page = async () => {
     redirect(authOptions.pages?.signIn || "/sign-in");
   }
   return (
-    <div className="max-w-4xl mx-auto py-12">
-      <div className="grid items-start gap-8">
+    <div className="max-w-4xl mx-auto py-6">
+      <div className="grid items-start gap-4">
         <h1 className="font-bold text-3xl md:text-4xl">Settings</h1>
 
-        <div className="grid gap-10">
+        <div className="grid gap-10　">
           <UserNameForm
             user={{
               id: session.user.id,
@@ -45,58 +46,80 @@ const page = async () => {
         </div>
       </div>
 
-      <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">認證</TabsTrigger>
-        <TabsTrigger value="password">Admin</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
-        <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when  done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="password">
-        <Card>
-          <CardHeader>
-            <CardTitle>版主</CardTitle>
-            <CardDescription>
-              志工請輸入密碼成為管理員
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new"></Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-    </Tabs>
+      <Tabs defaultValue="account" className="w-full h-[200px]">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="account">臉書認證</TabsTrigger>
+          <TabsTrigger value="phone_number">電話認證</TabsTrigger>
+          <TabsTrigger value="password">Admin</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account" className="h-full">
+          <Card>
+            <CardHeader>
+              <CardTitle>Account</CardTitle>
+              <CardDescription>
+                請輸入您的臉書帳號！
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Save changes</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+        <TabsContent value="phone_number" className="h-full">
+          <Card>
+            <CardHeader>
+              <CardTitle>Phone Number</CardTitle>
+              <CardDescription>
+                請輸入您的電話號碼！
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="name">Phone Number</Label>
+                <Input id="name" />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Save changes</Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+        <TabsContent value="password" className="h-full">
+          <form action={async (FormData) => {
+            // Call the Server Action with the FormData
+            await setrole(FormData)
+          }}>
+            <Card>
+              <CardHeader>
+                <CardTitle>版主</CardTitle>
+                <CardDescription>
+                  志工請輸入密碼成為管理員
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="current">Password</Label>
+                  <Input  type='text'
+                  name='password'
+                  placeholder='password...'
+                  required />
+                </div>
+                <div className="space-y-1">
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button>Save password</Button>
+              </CardFooter>
+            </Card>
+          </form>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
