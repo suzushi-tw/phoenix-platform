@@ -9,17 +9,21 @@ export async function setrole(FormData: FormData) {
     let role;
     if(input==password){
       role="admin";
+      if(session){
+        await db.user.update({
+          where: {
+            id: session.user.id,
+          },
+          data: {
+            role: role,
+          },
+        });
+      }
+      console.log(session?.user.id+"became admin");
+      return { status: 'success', message: "Update successfull" };
+    } else {
+      return { status: 'error', message: 'Invalid password' };
     }
-    if(session){
-      await db.user.update({
-        where: {
-          id: session.user.id,
-        },
-        data: {
-          role: role,
-        },
-      });
-    }
-    console.log(session?.user.id+"became admin")
+
 }
 

@@ -20,6 +20,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { setrole } from "@/serveractions/action";
+import { toast, Toaster } from 'react-hot-toast';
 
 export const metadata = {
   title: "Settings",
@@ -31,6 +32,8 @@ const page = async () => {
   if (!session?.user) {
     redirect(authOptions.pages?.signIn || "/sign-in");
   }
+  const notify = () => toast('Changes saved!');
+
   return (
     <div className="max-w-4xl mx-auto py-6">
       <div className="grid items-start gap-4">
@@ -67,7 +70,8 @@ const page = async () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button>Save changes</Button>
+              <Button onClick={notify}>Save changes</Button>
+              <Toaster />
             </CardFooter>
           </Card>
         </TabsContent>
@@ -86,14 +90,20 @@ const page = async () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button>Save changes</Button>
+              <Button onClick={notify}>Save changes</Button>
+              <Toaster />
             </CardFooter>
           </Card>
         </TabsContent>
         <TabsContent value="password" className="h-full">
           <form action={async (FormData) => {
             // Call the Server Action with the FormData
-            await setrole(FormData)
+            const result=await setrole(FormData);
+            if (result.status === 'success') {
+              toast.success('Role changed successfully');
+            } else if (result.status === 'error') {
+              toast.error(result.message);
+            }
           }}>
             <Card>
               <CardHeader>
@@ -105,16 +115,17 @@ const page = async () => {
               <CardContent className="space-y-2">
                 <div className="space-y-1">
                   <Label htmlFor="current">Password</Label>
-                  <Input  type='text'
-                  name='password'
-                  placeholder='password...'
-                  required />
+                  <Input type='text'
+                    name='password'
+                    placeholder='password...'
+                    required />
                 </div>
                 <div className="space-y-1">
                 </div>
               </CardContent>
               <CardFooter>
-                <Button>Save password</Button>
+                <Button onClick={notify}>Save password</Button>
+                <Toaster />
               </CardFooter>
             </Card>
           </form>
