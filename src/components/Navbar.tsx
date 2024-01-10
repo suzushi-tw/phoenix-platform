@@ -14,7 +14,7 @@ const Navbar = async () => {
         {/* logo */}
         <Link href='/' className='flex gap-2 items-center'>
           {/* <Icons.logo className='h-8 w-8 sm:h-6 sm:w-6' /> */}
-          <Image src='/Phoenix_logo.png' alt='logo' width={60} height={60} />
+          <Image src='/Phoenix_logo_withoutBG.png' alt='logo' width={60} height={60} />
           <p className='hidden text-zinc-700 text-xl font-medium md:block'>Phoenix</p>
         </Link>
 
