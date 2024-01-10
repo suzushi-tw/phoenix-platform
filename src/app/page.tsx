@@ -5,27 +5,34 @@ import { getAuthSession } from "@/lib/auth";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react"
+import { findrole } from "@/serveractions/action";
 
-import { Button } from "@/components/ui/Button"
+
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card"
 import { Input } from "@/components/ui/Input"
-import { Label } from "@/components/ui/Label"
+
 import Forumlist from "@/components/Forumlist";
-import { Subscribedforumbutton } from "@/components/Subscribedforumbutton"; 
+import { Subscribedforumbutton } from "@/components/Subscribedforumbutton";
+
+
 
 
 export const dynamic = "force-dynamic"
 export const fetchCache = "force-no-store"
 
+
+
+
 export default async function Home() {
   const session = await getAuthSession();
+
+  const userRole = session?.user?.role;
 
   return (
     <>
@@ -45,7 +52,7 @@ export default async function Home() {
           <dl className='-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6'>
             <div className='flex justify-between gap-x-6 py-3 pl-3'>
               <p className='text-zinc-500 '>
-                歡迎回來 
+                歡迎回來
               </p>
               <Subscribedforumbutton />
             </div>
@@ -85,13 +92,16 @@ export default async function Home() {
               </CardContent>
             </Card>
 
-            <Link
-              className={buttonVariants({
-                className: 'w-full mt-4 mb-6',
-              })}
-              href={`/r/create`}>
-              創建看板
-            </Link>
+
+            {userRole === 'admin' && (
+              <Link
+                className={buttonVariants({
+                  className: 'w-full mt-4 mb-6',
+                })}
+                href={`/r/create`}>
+                創建看板
+              </Link>
+            )}
           </dl>
         </div>
       </div>
